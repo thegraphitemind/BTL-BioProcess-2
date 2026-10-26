@@ -126,6 +126,52 @@ td.neg{color:#f87171}td.pos{color:#86efac}
  .panel{overflow:visible;border:0!important;border-top:1px solid var(--ln)!important}.chips .chip.y{display:none}#hint{display:none}
 }
 @media (max-width:560px){.chips{display:none}#legend{width:200px}.streams{grid-template-columns:repeat(2,1fr)}table{font-size:9.5px}}
+[hidden]{display:none!important}
+#tourBtn{position:absolute;top:10px;right:12px;z-index:3;display:flex;align-items:center;gap:9px;padding:6px 14px 6px 6px;border-radius:999px;border:1px solid rgba(56,189,248,.55);background:linear-gradient(135deg,rgba(14,40,62,.92),rgba(10,22,34,.92));box-shadow:0 0 0 0 rgba(56,189,248,.5),0 6px 22px rgba(0,0,0,.45);animation:tb 2.4s infinite;text-align:left}
+#tourBtn:hover{border-color:var(--ac);background:linear-gradient(135deg,rgba(18,58,88,.95),rgba(12,28,44,.95))}
+#tourBtn i{width:28px;height:28px;border-radius:50%;background:var(--ac);color:#04121d;display:grid;place-items:center;flex:none}
+#tourBtn span{display:flex;flex-direction:column;line-height:1.25}#tourBtn b{font-size:12.5px;font-weight:600;color:#e6f5ff}
+#tourBtn small{font:9.5px var(--mono);letter-spacing:.8px;color:#7fc8ee}
+@keyframes tb{0%{box-shadow:0 0 0 0 rgba(56,189,248,.45),0 6px 22px rgba(0,0,0,.45)}70%{box-shadow:0 0 0 12px rgba(56,189,248,0),0 6px 22px rgba(0,0,0,.45)}100%{box-shadow:0 0 0 0 rgba(56,189,248,0),0 6px 22px rgba(0,0,0,.45)}}
+#view.touring #legend,#view.touring #hint{display:none}
+#tour{--tc:var(--ac);position:absolute;left:50%;bottom:12px;transform:translateX(-50%);width:min(840px,calc(100% - 24px));z-index:4;display:flex;flex-direction:column;gap:8px;padding:12px 14px 10px;background:rgba(6,11,17,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--ln2);border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,.55)}
+#view{--tc:var(--ac)}
+#tour .tbar{position:absolute;left:0;right:0;top:0;height:2px;background:rgba(255,255,255,.06);border-radius:10px 10px 0 0;overflow:hidden}
+#tour .tbar i{display:block;height:100%;width:0;background:var(--tc);box-shadow:0 0 8px var(--tc)}
+#tour .thead{display:flex;align-items:center;gap:10px;min-width:0}
+#tStep{font:700 10.5px var(--mono);letter-spacing:.8px;padding:3px 8px;border-radius:5px;color:#04121d;background:var(--tc);flex:none}
+#tTitle{font-size:15px;font-weight:600;color:#eef6ff;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#tour .tbtns{display:flex;gap:6px;flex:none}
+#tour button{height:28px;min-width:28px;padding:0 8px;border-radius:6px;border:1px solid var(--ln2);background:rgba(255,255,255,.04);display:inline-flex;align-items:center;justify-content:center;gap:5px;font:600 10px var(--mono);color:#cfe0ef}
+#tour button:hover{border-color:var(--tc);color:#fff}#tour button.on{background:rgba(56,189,248,.18);border-color:var(--ac);color:#e6f5ff}
+#tour button svg{width:13px;height:13px;fill:currentColor}
+#tText{font-size:13.5px;line-height:1.6;color:#6f8396;max-height:7.2em;overflow:auto;scrollbar-width:thin;scrollbar-color:#24384c transparent}
+#tText .sn{transition:color .3s}#tText .sn.past{color:#9db1c5}
+#tText .sn.cur{color:#fff;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--tc) 30%,transparent) 0)}
+#tKv{display:flex;flex-wrap:wrap;gap:5px}#tKv:empty{display:none}
+#tKv span{font:10px var(--mono);padding:3px 7px;border-radius:5px;border:1px solid var(--ln2);background:rgba(255,255,255,.03);color:var(--mu)}
+#tKv span b{color:#e6f1fb;font-weight:600;margin-left:4px}
+#tour .tnav{display:flex;align-items:center;gap:6px;min-width:0}
+#tNote{font:9.5px var(--mono);color:var(--wr);margin-left:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#tRail{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+#tour #tRail button{width:22px;height:22px;min-width:0;padding:0;border-radius:50%;font-size:9px;color:var(--dim)}
+#tour #tRail button.done{color:#9db1c5;border-color:rgba(125,170,215,.4)}
+#tour #tRail button.on{background:var(--tc);border-color:var(--tc);color:#04121d}
+#tourCard{left:50%;top:64px;transform:translateX(-50%);text-align:center;opacity:0;z-index:3;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+#tourCard em{display:block;font:700 11px var(--mono);font-style:normal;letter-spacing:4px;color:var(--tc)}
+#tourCard b{display:block;font:600 26px var(--sans);color:#fff;margin-top:4px;white-space:nowrap}
+#tourCard.run{animation:tcard 3.4s ease forwards}
+@keyframes tcard{0%{opacity:0;transform:translate(-50%,8px)}12%,70%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-6px)}}
+#tourPin{position:absolute;left:0;top:0;z-index:2;pointer-events:none;display:none}
+#tourPin i{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;border:2px solid var(--tc);animation:tp 1.6s infinite}
+#tourPin s{position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:var(--tc);box-shadow:0 0 10px var(--tc)}
+#tourPin b{position:absolute;left:18px;top:-11px;font:700 10px var(--mono);letter-spacing:.6px;white-space:nowrap;padding:3px 7px;border-radius:4px;color:#04121d;background:var(--tc)}
+@keyframes tp{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.7);opacity:0}}
+.sec.tourhl{outline:1px solid var(--ac);outline-offset:-1px;border-radius:8px;box-shadow:0 0 18px rgba(56,189,248,.25)}
+@media (prefers-reduced-motion:reduce){#tourBtn,#tourPin i{animation:none}#tourCard.run{animation-duration:.01s}}
+@media (max-width:1000px){#view.touring{height:82vh}}
+@media (max-width:700px){#tour{padding:10px 10px 8px;gap:6px}#tTitle{font-size:13.5px}#tText{font-size:12.5px;max-height:5.2em}#tText .sn:not(.cur){display:none}
+ #tour #tRail button{width:18px;height:18px;font-size:8px}#tour .tlbl,#tourBtn small{display:none}#tourCard b{font-size:19px}}
 </style>
 </head>
 <body>
@@ -177,6 +223,17 @@ td.neg{color:#f87171}td.pos{color:#86efac}
  <section id="view">
   <div id="host"></div>
   <div id="labels"></div>
+  <div id="tourPin"><i></i><s></s><b id="tPinT"></b></div>
+  <button id="tourBtn" type="button" aria-label="Start guided process tour"><i><svg viewBox="0 0 24 24" width="12" height="12"><path d="M7 4v16l13-8z" fill="currentColor"/></svg></i><span><b>Thuyết minh quy trình</b><small>GUIDED PROCESS TOUR · 14 STEPS</small></span></button>
+  <div class="ov" id="tourCard"><em id="tCardN"></em><b id="tCardT"></b></div>
+  <div id="tour" hidden role="region" aria-label="Guided process tour">
+   <div class="tbar"><i id="tProg"></i></div>
+   <div class="thead"><span id="tStep">01 / 14</span><h4 id="tTitle"></h4>
+    <div class="tbtns"><button type="button" id="tLang" title="Language">VI</button><button type="button" id="tVoice" title="Voice narration"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg><span class="tlbl" id="tVoiceL">VOICE</span></button><button type="button" id="tExit" title="Exit tour (Esc)"><svg viewBox="0 0 24 24"><path d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4 17.6 5 12 10.6z"/></svg></button></div></div>
+   <p id="tText" aria-live="polite"></p>
+   <div id="tKv"></div>
+   <div class="tnav"><button type="button" id="tPrev" title="Previous step (←)"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zm3.5 7L19 19V5z"/></svg></button><button type="button" id="tPlay" title="Pause / play (Space)"><svg viewBox="0 0 24 24" id="tPlayI"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button><button type="button" id="tNext" title="Next step (→)"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM5 5l9.5 7L5 19z"/></svg></button><span id="tNote"></span><div id="tRail"></div></div>
+  </div>
   <div class="ov" id="vtag">
    <div class="live"><i></i>LIVE 3D DIGITAL TWIN</div>
    <div id="vmode">MODE · THERMAL HEATMAP</div>
@@ -765,7 +822,7 @@ function updLabels(){
   l.sx=(V3.x*.5+.5)*VW-4;l.sy=(-V3.y*.5+.5)*VH-4;vis.push(l);
  }
  // greedy declutter: lowest anchors first; try card above/below × right/left with growing leaders until free
- vis.sort((p,q)=>q.sy-p.sy);const placed=[],fits=(x0,y0,w,hh,st)=>(!st||x0>-2&&x0+w<VW+2)&&y0>2&&y0+hh<VH-2&&!placed.some(r=>x0<r[2]+3&&x0+w+3>r[0]&&y0<r[3]+3&&y0+hh+3>r[1]);
+ vis.sort((p,q)=>q.sy-p.sy);const placed=RSV.slice(),fits=(x0,y0,w,hh,st)=>(!st||x0>-2&&x0+w<VW+2)&&y0>2&&y0+hh<VH-2&&!placed.some(r=>x0<r[2]+3&&x0+w+3>r[0]&&y0<r[3]+3&&y0+hh+3>r[1]);
  for(const l of vis){
   let best=null;
   for(const st of [1,0])for(let k=0;k<10&&!best;k++)for(const dn of [0,1]){if(best)break;for(const sd of (l.sx>VW*.55?[1,0]:[0,1])){
@@ -905,20 +962,349 @@ function drawChart(){
 }
 
 // ================= RESIZE / LOOP =================
-function resize(){VW=view.clientWidth||1;VH=view.clientHeight||1;renderer.setSize(VW,VH,false);camera.aspect=VW/VH;camera.updateProjectionMatrix();D.chart=true;}
+let RSV=[];
+function resize(){VW=view.clientWidth||1;VH=view.clientHeight||1;
+ RSV=['vtag','tourBtn'].map(id=>$(id)).filter(e=>e.offsetWidth).map(e=>[e.offsetLeft,e.offsetTop,e.offsetLeft+e.offsetWidth,e.offsetTop+e.offsetHeight]);renderer.setSize(VW,VH,false);camera.aspect=VW/VH;camera.updateProjectionMatrix();D.chart=true;}
 if(window.ResizeObserver){new ResizeObserver(resize).observe(view);new ResizeObserver(()=>D.chart=true).observe(cv);}
+// ================= GUIDED PROCESS TOUR (narrated step-by-step walkthrough) =================
+function tfly(p,t,d,b=1.45){const m=b*Math.pow(Math.max(1,1.3*VH/VW),.85);flyTo(p.map((v,i)=>t[i]+(v-t[i])*m),t,d);}
+function setParam(k,v){const c=CTRL.concat(VCTRL).find(c=>c.k===k);if(!c)return;c.inp.value=v;c.upd();onParam(k);}
+const tourG=new THREE.Group();asm.add(tourG);
+const HL={fill:new THREE.MeshBasicMaterial({color:0x38bdf8,transparent:true,opacity:.08,blending:THREE.AdditiveBlending,depthWrite:false}),
+ line:new THREE.LineBasicMaterial({color:0x7dd3fc,transparent:true,opacity:.9,depthTest:false}),
+ glow:new THREE.MeshBasicMaterial({color:0x7dd3fc,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false})};
+const hlBox=new THREE.BoxGeometry(1,1,1),hlEdge=new THREE.EdgesGeometry(hlBox);
+const TR={vo:0,voK:'',ph:0,on:false,pend:false,i:0,si:-1,t:0,dur:1,cap:0,est:1,spk:false,endWait:false,paused:false,done:false,lang:'vi',voice:'speechSynthesis' in window,
+ sents:[],fired:new Set(),ptw:null,utt:null,hp:null,pin:null,kt:0,snap:null};
+const hsec=k=>({sec:k}),zc=k=>L.secs[k].zc+asm.position.z,pcz=()=>(L.secs.cool.z0+L.secs.heat.z1)/2+asm.position.z;
+const nA=(x,d=1)=>{const s=x.toFixed(d);return TR.lang==='vi'?s.replace('.',','):s;},nI=x=>Math.round(x).toLocaleString(TR.lang==='vi'?'vi-VN':'en-US');
+function tw(k,b,d){TR.ptw={k,a:S[k],b,t:0,d};}
+const RATE={vi:{OPTIMAL:'thiết kế TỐI ƯU',UNDER:'THIẾU diện tích hoặc ΔP quá lớn',OVER:'THỪA diện tích'},en:{OPTIMAL:'OPTIMAL',UNDER:'UNDER-DESIGNED',OVER:'OVER-DESIGNED'}};
+const TOUR=[
+{c:'#38bdf8',rot:true,cam:()=>tfly([5.6,3.3,5.8],[0,-.3,-.4],2.4,1),
+ k:()=>[['V',`${nI(S.V)} L/h`],['T',`${nA(P.Tin)} → ${nA(R.Tp)} → ${nA(P.Tout)} °C`],['N<sub>t</sub>',`${S.Nt}`]],
+ vi:{t:'Tổng quan dây chuyền HTST',sh:'Tổng quan',s:()=>[
+  'Đây là bản sao số (digital twin) của dây chuyền thanh trùng sữa HTST (High Temperature Short Time) dùng thiết bị trao đổi nhiệt dạng tấm PHE.',
+  'Nhiệm vụ của dây chuyền: nâng sữa tươi từ 4 °C lên tối thiểu 72 °C, giữ ít nhất 15 s để tiêu diệt vi sinh vật gây bệnh, rồi làm lạnh nhanh về 4 °C.',
+  'Tất cả diễn ra trong một khung PHE duy nhất, chia thành ba vùng Làm lạnh, Hồi nhiệt và Gia nhiệt, cùng với ống giữ nhiệt và van chuyển hướng dòng FDV.',
+  `Điểm thiết kế đang mô phỏng là ${nI(S.V)} L/h sữa. Mọi con số trong phần thuyết minh đều do bộ giải tính trực tiếp.`,
+  'Chúng ta sẽ đi theo hành trình của một giọt sữa qua 14 bước.']},
+ en:{t:'HTST line overview',sh:'Overview',s:()=>[
+  'This is a digital twin of an HTST (High Temperature Short Time) milk pasteurization line built around a plate heat exchanger, or PHE.',
+  'Its job is to heat raw milk from 4 °C to at least 72 °C, hold it for at least 15 s to destroy pathogens, then chill it straight back to 4 °C.',
+  'Everything happens in one PHE frame split into three sections, Cooling, Regeneration and Heating, plus a holding tube and a flow diversion valve, the FDV.',
+  `The simulated design point is ${nI(S.V)} L/h of milk. Every number in this walkthrough is computed live by the solver.`,
+  'We will follow a single drop of milk through 14 steps.']}},
+{c:'#93c5fd',cam:()=>tfly([-2.9,1.25,4.4],[-.45,-.45,1.05],2.2),hi:()=>[tank,'raw'],
+ k:()=>[['T',`${nA(P.Tin)} °C`],['V',`${nI(S.V)} L/h`],['p<sub>pump</sub>',`${nA(R.pr.pump/1e5,2)} bar(g)`]],
+ vi:{t:'Bồn cân bằng và bơm cấp',sh:'Bồn cân bằng',s:()=>[
+  `Sữa tươi bảo quản lạnh ở ${nA(P.Tin)} °C được đưa vào bồn cân bằng (balance tank).`,
+  'Bồn giữ mức chất lỏng ổn định để bơm ly tâm luôn có cột áp hút không đổi, tránh hút khí và dao động lưu lượng.',
+  'Đây cũng là nơi nhận lại sữa chưa đạt nhiệt độ khi van FDV chuyển hướng dòng.',
+  `Bơm cấp đẩy sữa vào PHE với áp suất khoảng ${nA(R.pr.pump/1e5,2)} bar(g), đủ để thắng toàn bộ tổn thất áp suất phía sản phẩm.`]},
+ en:{t:'Balance tank and feed pump',sh:'Balance tank',s:()=>[
+  `Raw milk stored cold at ${nA(P.Tin)} °C enters the balance tank.`,
+  'The tank holds a constant liquid level, so the centrifugal pump always sees the same suction head with no air entrainment or flow surges.',
+  'It is also where under-temperature milk returns when the FDV diverts the flow.',
+  `The feed pump delivers milk to the PHE at about ${nA(R.pr.pump/1e5,2)} bar(g), enough to overcome the whole product-side pressure drop.`]}},
+{c:'#cbd5e1',cad:true,cam:()=>{const c=pcz();tfly([-3.1,1.35,c+1.9],[0,-.1,c-.55],2.2);},hi:()=>[head,follower],on:{2:()=>tw('explode',45,2.4)},
+ k:()=>[['N<sub>t</sub>',`${S.Nt}`],['N',`${R.N.cool} / ${R.N.regen} / ${R.N.heat}`],['δ','0.6 mm · 316L']],
+ vi:{t:'Cấu tạo khung PHE',sh:'Khung PHE',s:()=>[
+  'Thiết bị gồm khung cố định (fixed head), tấm ép di động (follower), thanh treo phía trên, thanh dẫn hướng phía dưới và cột đỡ phía sau.',
+  'Sáu bu lông giằng siết tấm ép vào khung, nén chặt gioăng để các kênh lưu chất không rò rỉ sang nhau.',
+  `Tách rời bộ tấm theo phương dọc: giữa hai tấm khung là ${S.Nt} tấm truyền nhiệt bằng thép không gỉ AISI 316L dày 0,6 mm.`,
+  `Hai tấm chia vùng có cửa nối bên hông tách bộ tấm thành ba vùng độc lập: Làm lạnh ${R.N.cool} tấm, Hồi nhiệt ${R.N.regen} tấm và Gia nhiệt ${R.N.heat} tấm.`]},
+ en:{t:'PHE frame construction',sh:'PHE frame',s:()=>[
+  'The unit consists of a fixed head, a movable follower, a top carrying bar, a bottom guide rail and a rear support column.',
+  'Six tie bolts clamp the follower against the head and compress the gaskets, so the fluid channels cannot leak into each other.',
+  `Opening the pack along its axis shows ${S.Nt} heat-transfer plates in AISI 316L stainless steel, 0.6 mm thick, between the two frame plates.`,
+  `Two divider plates with side connections split the pack into three independent sections: Cooling with ${R.N.cool} plates, Regeneration with ${R.N.regen} and Heating with ${R.N.heat}.`]}},
+{c:'#a3e635',insp:true,rot:true,cam:()=>tfly([1.5,.55,1.85],[0,0,0],2,1.3),
+ k:()=>[['β',`${S.beta}°`],['Nu',nA(R.S.regen.cs.Nu)],['f',R.S.regen.cs.f.toFixed(3)]],
+ vi:{t:'Tấm chevron và gioăng',sh:'Cặp tấm',s:()=>[
+  'Phóng to một cặp tấm: mỗi tấm có bốn lỗ cổng ở bốn góc và bề mặt dập gợn sóng hình xương cá (chevron).',
+  `Góc chevron β = ${S.beta}°. β càng lớn dòng càng xoáy mạnh, hệ số truyền nhiệt tăng nhưng tổn thất áp suất cũng tăng theo.`,
+  'Gioăng EPDM màu đen (tấm A) và màu xanh (tấm B) xen kẽ nhau, mỗi tấm được xoay 180° so với tấm kế bên.',
+  'Nhờ vậy hai lưu chất đi trong các kênh xen kẽ: kênh nóng chảy xuống, kênh lạnh chảy lên, tạo thành dòng ngược chiều hoàn toàn.']},
+ en:{t:'Chevron plates and gaskets',sh:'Plate pair',s:()=>[
+  'Here is one plate pair up close. Each plate has four corner ports and a pressed herringbone, or chevron, corrugation.',
+  `The chevron angle is β = ${S.beta}°. A larger β makes the flow swirl harder, raising heat transfer but also pressure drop.`,
+  'Black EPDM gaskets on plate A alternate with blue ones on plate B, and every plate is rotated 180° relative to its neighbour.',
+  'As a result the two fluids run in alternate channels, hot flowing down and cold flowing up, which gives fully counter-current flow.']}},
+{c:'#a3e635',cut:true,xr:45,cam:()=>{const z=zc('regen');tfly([.95,.32,z+.42],[0,.05,z],2.2,1.15);},
+ k:()=>[['b',`${nA(P.b*1000,0)} mm`],['Re',nI(R.S.regen.cs.Re)],['h',`${nI(R.S.regen.cs.h)} W/m²K`]],
+ vi:{t:'Bên trong kênh dòng',sh:'Kênh dòng',s:()=>[
+  'Cắt ngang bộ tấm để nhìn vào bên trong các kênh dòng của vùng hồi nhiệt.',
+  `Khe hở giữa hai tấm chỉ ${nA(P.b*1000,0)} mm, đường kính thủy lực khoảng ${nA(2*P.b/P.phi*1000)} mm.`,
+  `Các gờ chevron đan chéo buộc sữa liên tục đổi hướng, tạo rối mạnh dù Re chỉ khoảng ${nI(R.S.regen.cs.Re)}, cho Nu ≈ ${nA(R.S.regen.cs.Nu)}.`,
+  'Màu trên tấm là nhiệt độ cục bộ, xanh dương là lạnh và đỏ là nóng. Các hạt sáng là dòng sữa và nước đang chảy.']},
+ en:{t:'Inside the flow channels',sh:'Channels',s:()=>[
+  'Cutting through the pack lets us look inside the regeneration channels.',
+  `The gap between plates is only ${nA(P.b*1000,0)} mm, giving a hydraulic diameter of about ${nA(2*P.b/P.phi*1000)} mm.`,
+  `The crossing chevron ridges force the milk to change direction constantly, creating strong turbulence even at Re ≈ ${nI(R.S.regen.cs.Re)}, with Nu ≈ ${nA(R.S.regen.cs.Nu)}.`,
+  'Plate colour shows local temperature, blue for cold and red for hot. The bright particles are the milk and water streams.']}},
+{c:'#a3e635',cam:()=>{const z=zc('regen');tfly([-1.75,1.9,z+1.75],[0,-.05,z],2.2);},hi:()=>[hsec('regen'),'raw'],
+ k:()=>[['T',`${nA(P.Tin)} → ${nA(R.Tr)} °C`],['Q',`${nA(R.Qreg/1000)} kW`],['N',`${R.N.regen}`]],
+ vi:{t:'Hồi nhiệt, phía sữa tươi',sh:'Hồi nhiệt',s:()=>[
+  `Điểm dừng đầu tiên của sữa tươi là vùng Hồi nhiệt, vùng lớn nhất với ${R.N.regen} tấm.`,
+  `Sữa lạnh ${nA(P.Tin)} °C nhận nhiệt từ chính sữa đã thanh trùng đang chảy ngược chiều ở phía bên kia tấm.`,
+  `Sữa tươi được làm nóng lên ${nA(R.Tr)} °C mà không tốn thêm năng lượng.`,
+  `Hiệu suất hồi nhiệt η = ${nA(S.eta,0)} %, tương ứng ${nA(R.Qreg/1000)} kW được thu hồi.`]},
+ en:{t:'Regeneration, raw-milk side',sh:'Regeneration',s:()=>[
+  `Raw milk first enters the Regeneration section, the largest one with ${R.N.regen} plates.`,
+  `Here the cold ${nA(P.Tin)} °C milk picks up heat from the already pasteurized milk flowing the opposite way on the other side of each plate.`,
+  `The raw milk is warmed to ${nA(R.Tr)} °C with no extra energy input.`,
+  `Regeneration efficiency is η = ${nA(S.eta,0)} %, recovering ${nA(R.Qreg/1000)} kW.`]}},
+{c:'#ff6a3d',cam:()=>{const z=zc('heat');tfly([-1.95,1.5,z+1.25],[-.15,0,z-.1],2.2);},hi:()=>[hsec('heat'),'hwin','hwout',hwSkid],
+ k:()=>[['T',`${nA(R.Tr)} → ${nA(R.Tp)} °C`],['HW',`${nA(R.Thw)} → ${nA(R.Thwo)} °C`],['Q',`${nA(R.Qheat/1000)} kW`]],
+ vi:{t:'Gia nhiệt bằng nước nóng',sh:'Gia nhiệt',s:()=>[
+  `Rời vùng hồi nhiệt, sữa đi vào vùng Gia nhiệt gồm ${R.N.heat} tấm.`,
+  `Nước nóng ${nA(R.Thw)} °C từ cụm cấp nhiệt chảy ngược chiều, nâng sữa từ ${nA(R.Tr)} °C lên ${nA(R.Tp)} °C.`,
+  `Lượng nhiệt cần cấp chỉ còn ${nA(R.Qheat/1000)} kW. Nước nóng ra ở ${nA(R.Thwo)} °C và quay về để gia nhiệt lại.`,
+  `Nước nóng chỉ cao hơn nhiệt độ thanh trùng khoảng ${nA(P.dThw,0)} °C, giúp hạn chế protein sữa cháy bám trên bề mặt tấm.`]},
+ en:{t:'Hot-water heating',sh:'Heating',s:()=>[
+  `Leaving regeneration, the milk enters the Heating section of ${R.N.heat} plates.`,
+  `Hot water at ${nA(R.Thw)} °C from the heating skid flows counter-current and lifts the milk from ${nA(R.Tr)} °C to ${nA(R.Tp)} °C.`,
+  `Only ${nA(R.Qheat/1000)} kW of heat is still needed. The water leaves at ${nA(R.Thwo)} °C and returns to be reheated.`,
+  `The water is only about ${nA(P.dThw,0)} °C hotter than the pasteurization setpoint, which limits milk protein burning onto the plates.`]}},
+{c:'#ff8a5c',ui:['htst'],cam:()=>{const hz=(G.zA+G.zB)/2+asm.position.z;tfly([G.HX+2.4,1.3,hz+1.75],[G.HX,.05,hz],2.2);},hi:()=>['hold','htin'],
+ k:()=>[['t<sub>min</sub>',`${nA(R.hold.tMin)} s`],['v',`${nA(R.hold.v,2)} m/s`],['F<sub>72</sub>',`${nA(R.hold.F72)} s`]],
+ vi:{t:'Ống giữ nhiệt',sh:'Ống giữ nhiệt',s:()=>[
+  'Sữa nóng rời PHE và đi vào ống giữ nhiệt dạng ziczac, được lắp dốc lên để không đọng túi khí.',
+  `Ống dài ${nA(P.Lht)} m, đường kính trong ${nA(P.Dht*1000)} mm, vận tốc trung bình ${nA(R.hold.v,2)} m/s.`,
+  `Thời gian lưu trung bình là ${nA(R.hold.tMean)} s, nhưng quy định HTST tính theo hạt sữa nhanh nhất: ${nA(R.hold.tMin)} s.`,
+  `Mức tiêu diệt vi sinh tương đương F72 = ${nA(R.hold.F72)} s, tức PU = ${nA(R.hold.PU,2)}.`]},
+ en:{t:'Holding tube',sh:'Holding tube',s:()=>[
+  'Hot milk leaves the PHE and enters the serpentine holding tube, which rises continuously so no air pockets can form.',
+  `The tube is ${nA(P.Lht)} m long with a ${nA(P.Dht*1000)} mm bore, and the mean velocity is ${nA(R.hold.v,2)} m/s.`,
+  `Mean residence time is ${nA(R.hold.tMean)} s, but HTST rules count the fastest particle: ${nA(R.hold.tMin)} s.`,
+  `The resulting lethality is F72 = ${nA(R.hold.F72)} s, which means PU = ${nA(R.hold.PU,2)}.`]}},
+{c:'#22c55e',ui:['htst'],cam:()=>tfly([2.75,1.8,1.8],[G.HX-.15,.78,G.zA+.14+asm.position.z],2.2),hi:()=>[fdv,'fwd','div'],
+ on:{2:()=>tw('Tp',71,2.6),4:()=>tw('Tp',DEF.Tp,2.2)},
+ k:()=>[['T',`${nA(R.Tp)} °C`],['t<sub>min</sub>',`${nA(R.hold.tMin)} s`],['FDV',R.fwd?'FORWARD':'<span style="color:var(--bd)">DIVERTED</span>']],
+ vi:{t:'Van chuyển hướng dòng FDV',sh:'Van FDV',s:()=>[
+  'Cuối ống giữ nhiệt, cảm biến nhiệt RTD đo nhiệt độ sữa liên tục và điều khiển van chuyển hướng dòng FDV.',
+  `Hiện tại ${nA(R.Tp)} °C ≥ 72 °C và ${nA(R.hold.tMin)} s ≥ 15 s, nên van ở trạng thái FORWARD FLOW và sữa an toàn đi tiếp.`,
+  'Thử mô phỏng sự cố: hạ nhiệt độ thanh trùng xuống 71 °C.',
+  'Đèn chuyển đỏ và van lập tức chuyển hướng. Sữa chưa đạt được đưa về bồn cân bằng để xử lý lại, không bao giờ tới khâu đóng gói.',
+  `Khôi phục nhiệt độ ${nA(DEF.Tp)} °C, van trở lại FORWARD FLOW.`]},
+ en:{t:'Flow diversion valve (FDV)',sh:'FDV',s:()=>[
+  'At the end of the holding tube an RTD sensor measures milk temperature continuously and drives the flow diversion valve, the FDV.',
+  `Right now ${nA(R.Tp)} °C ≥ 72 °C and ${nA(R.hold.tMin)} s ≥ 15 s, so the valve is in FORWARD FLOW and safe milk moves on.`,
+  'Let us simulate a fault by dropping the pasteurization temperature to 71 °C.',
+  'The lamp turns red and the valve diverts at once. Under-processed milk goes back to the balance tank for reprocessing and never reaches the filler.',
+  `Restoring ${nA(DEF.Tp)} °C puts the valve back into FORWARD FLOW.`]}},
+{c:'#a3e635',cam:()=>{const z=zc('regen');tfly([2.45,1.95,z+1.75],[.25,.2,z],2.2);},hi:()=>[hsec('regen'),'fwd'],
+ k:()=>[['T',`${nA(R.Tp)} → ${nA(R.Trh)} °C`],['Q',`${nA(R.Qreg/1000)} kW`],['η',`${nA(S.eta,0)} %`]],
+ vi:{t:'Hồi nhiệt, phía sữa đã thanh trùng',sh:'Hồi nhiệt (nóng)',s:()=>[
+  'Sữa đã thanh trùng quay trở lại vùng Hồi nhiệt, lần này chảy ở phía nóng của các tấm.',
+  `Nó nhả nhiệt cho dòng sữa tươi đang đi vào và tự hạ từ ${nA(R.Tp)} °C xuống ${nA(R.Trh)} °C.`,
+  'Trong vận hành thực tế, áp suất phía sữa đã thanh trùng luôn được giữ cao hơn phía sữa tươi, để nếu tấm bị thủng thì chỉ có sữa sạch rò sang sữa tươi.',
+  `Nhờ đó ${nA(R.saved*100)} % nhu cầu nhiệt được thu hồi. Đây là lý do chính khiến HTST tiết kiệm năng lượng.`]},
+ en:{t:'Regeneration, pasteurized side',sh:'Regeneration (hot)',s:()=>[
+  'The pasteurized milk returns to the Regeneration section, this time on the hot side of the plates.',
+  `It gives its heat to the incoming raw milk and cools itself from ${nA(R.Tp)} °C to ${nA(R.Trh)} °C.`,
+  'In real operation the pasteurized side is always kept at a higher pressure than the raw side, so a pinhole can only leak clean milk into raw milk.',
+  `This recovers ${nA(R.saved*100)} % of the heating demand, the main reason HTST is so energy-efficient.`]}},
+{c:'#3ab8ff',cam:()=>{const z=zc('cool');tfly([-1.95,1.35,z+1.6],[-.1,-.05,z],2.2);},hi:()=>[hsec('cool'),'cwin','cwout',chiller],
+ k:()=>[['T',`${nA(R.Trh)} → ${nA(P.Tout)} °C`],['CHW',`${nA(R.Tcw)} → ${nA(R.Tcwo)} °C`],['Q',`${nA(R.Qcool/1000)} kW`]],
+ vi:{t:'Làm lạnh bằng nước lạnh',sh:'Làm lạnh',s:()=>[
+  `Cuối cùng sữa vào vùng Làm lạnh gồm ${R.N.cool} tấm, nằm sát khung cố định.`,
+  `Nước lạnh ${nA(R.Tcw)} °C từ cụm chiller hạ sữa từ ${nA(R.Trh)} °C xuống ${nA(P.Tout)} °C, tải lạnh ${nA(R.Qcool/1000)} kW.`,
+  'Làm lạnh nhanh ngăn các vi khuẩn chịu nhiệt còn sót lại phát triển và giữ hương vị tươi của sữa.',
+  `Nước lạnh ra ở ${nA(R.Tcwo)} °C và quay về chiller.`]},
+ en:{t:'Chilled-water cooling',sh:'Cooling',s:()=>[
+  `Finally the milk enters the Cooling section, ${R.N.cool} plates next to the fixed head.`,
+  `Chilled water at ${nA(R.Tcw)} °C from the chiller takes the milk from ${nA(R.Trh)} °C down to ${nA(P.Tout)} °C, a cooling load of ${nA(R.Qcool/1000)} kW.`,
+  'Rapid cooling stops any surviving heat-resistant bacteria from growing and keeps the fresh-milk flavour.',
+  `The chilled water leaves at ${nA(R.Tcwo)} °C and returns to the chiller.`]}},
+{c:'#60a5fa',cam:()=>tfly([2.05,.4,3.6],[.1,-.65,1.35],2.2),hi:()=>['out'],
+ k:()=>[['T',`${nA(P.Tout)} °C`],['ΔP',`${nA(R.dpTot/1000)} kPa`],['V',`${nI(S.V)} L/h`]],
+ vi:{t:'Sữa thành phẩm',sh:'Sữa thành phẩm',s:()=>[
+  `Sữa thanh trùng ở ${nA(P.Tout)} °C rời hệ thống theo đường ống ra, tới bồn chứa vô trùng hoặc máy chiết rót.`,
+  'Trên hành trình đó sữa đi qua bốn lượt trong cùng một khung PHE: hồi nhiệt, gia nhiệt, hồi nhiệt lần nữa ở phía nóng, rồi làm lạnh.',
+  `Tổng tổn thất áp suất phía sản phẩm là ${nA(R.dpTot/1000)} kPa (${nA(R.dpTot/1e5,2)} bar), ${R.dpTot<P.dpMax?'thấp hơn':'vượt'} giới hạn thiết kế 2,5 bar.`]},
+ en:{t:'Finished product',sh:'Product out',s:()=>[
+  `Pasteurized milk at ${nA(P.Tout)} °C leaves through the outlet line to an aseptic storage tank or the filling machine.`,
+  'On the way it made four passes through the same PHE frame: regeneration, heating, regeneration again on the hot side, then cooling.',
+  `Total product-side pressure drop is ${nA(R.dpTot/1000)} kPa (${nA(R.dpTot/1e5,2)} bar), ${R.dpTot<P.dpMax?'below':'above'} the 2.5 bar design limit.`]}},
+{c:'#38bdf8',tab:'prof',ui:['chart','d_pill'],cam:()=>tfly([4.9,3.0,4.9],[0,-.3,-.3],2.2,1.05),
+ k:()=>[['U',`${nI(R.Uavg)} W/m²K`],['A',`${nA(R.Aav)} / ${nA(R.Areq)} m²`],['',R.status]],
+ vi:{t:'Biên dạng nhiệt và đánh giá thiết kế',sh:'Đánh giá',s:()=>[
+  'Biểu đồ bên phải vẽ nhiệt độ hai dòng dọc theo từng vùng. Hai đường gần như song song là dấu hiệu của dòng ngược chiều hiệu quả.',
+  `Hệ số truyền nhiệt tổng trung bình U = ${nI(R.Uavg)} W/m²K, đã kể đến trở lực bám bẩn.`,
+  `Diện tích cần ${nA(R.Areq)} m², diện tích có ${nA(R.Aav)} m², dư ${nA(R.margin*100)} %, nên kết quả là ${RATE.vi[R.status]}.`,
+  'Khi thay đổi lưu lượng, góc chevron hay số tấm ở bảng bên trái, mọi kết quả sẽ được tính lại tức thì.']},
+ en:{t:'Thermal profile and design rating',sh:'Rating',s:()=>[
+  'The chart on the right plots both stream temperatures along each section. Near-parallel lines are the signature of effective counter-current flow.',
+  `The area-weighted overall coefficient is U = ${nI(R.Uavg)} W/m²K, fouling resistance included.`,
+  `Required area is ${nA(R.Areq)} m² against ${nA(R.Aav)} m² installed, a ${nA(R.margin*100)} % margin, so the design is ${RATE.en[R.status]}.`,
+  'Change the flow, chevron angle or plate count in the left panel and every result is recalculated instantly.']}},
+{c:'#22c55e',rot:true,cam:()=>tfly([5.2,2.7,5.4],[0,-.3,-.35],2.4,1.05),
+ k:()=>[['Q<sub>reg</sub>',`${nA(R.Qreg/1000)} kW`],['HTST',`${nA(R.Tp)} °C · ${nA(R.hold.tMin)} s`],['',R.status]],
+ vi:{t:'Tổng kết',sh:'Tổng kết',s:()=>[
+  'Tóm tắt hành trình: Bồn cân bằng → Hồi nhiệt → Gia nhiệt → Ống giữ nhiệt → Van FDV → Hồi nhiệt → Làm lạnh → Thành phẩm.',
+  `Hồi nhiệt thu về ${nA(R.Qreg/1000)} kW, nên hệ thống chỉ cần cấp thêm ${nA(R.Qheat/1000)} kW nhiệt và ${nA(R.Qcool/1000)} kW lạnh.`,
+  `Điều kiện an toàn ${nA(R.Tp)} °C trong ${nA(R.hold.tMin)} s được van FDV giám sát liên tục.`,
+  'Kết thúc phần thuyết minh. Bạn có thể xoay mô hình, chọn lại bất kỳ bước nào trên thanh tiến trình, hoặc thoát để tự điều chỉnh thông số.']},
+ en:{t:'Summary',sh:'Summary',s:()=>[
+  'The full path: Balance tank → Regeneration → Heating → Holding tube → FDV → Regeneration → Cooling → Product.',
+  `Regeneration recovers ${nA(R.Qreg/1000)} kW, so the line needs only ${nA(R.Qheat/1000)} kW of heating and ${nA(R.Qcool/1000)} kW of cooling.`,
+  `The safety condition, ${nA(R.Tp)} °C for ${nA(R.hold.tMin)} s, is monitored continuously by the FDV.`,
+  'That ends the walkthrough. Orbit the model, replay any step from the progress rail, or exit to adjust the parameters yourself.']}}];
+
+function hiClear(){for(let i=tourG.children.length-1;i>=0;i--){const o=tourG.children[i];tourG.remove(o);if(o.userData.own)o.geometry.dispose();}TR.pin=null;}
+function hiBuild(){
+ hiClear();TR.hp=pipes;const st=TOUR[TR.i];if(!st.hi)return;asm.updateMatrixWorld(true);
+ st.hi().forEach(h=>{let b;
+  if(typeof h==='string'){const pp=pipes.find(p=>p.id===h);if(!pp)return;
+   const m=new THREE.Mesh(new THREE.TubeGeometry(pp.curve,Math.max(24,Math.round(pp.len*30)),pp.r*1.9,10,false),HL.glow);m.userData.own=1;m.renderOrder=6;tourG.add(m);
+   if(!TR.pin)TR.pin=pp.curve.getPointAt(.5).add(new THREE.Vector3(0,.06,0));return;}
+  if(h.sec){const s=L.secs[h.sec];b=new THREE.Box3(new THREE.Vector3(-.33,-.75,s.z1-.012),new THREE.Vector3(.33,.75,s.z0+.012));}
+  else{b=new THREE.Box3().setFromObject(h);b.min.sub(asm.position);b.max.sub(asm.position);b.expandByScalar(.03);}
+  const sz=b.getSize(new THREE.Vector3()),c=b.getCenter(new THREE.Vector3()),m=new THREE.Mesh(hlBox,HL.fill),l=new THREE.LineSegments(hlEdge,HL.line);
+  [m,l].forEach(o=>{o.scale.copy(sz);o.position.copy(c);tourG.add(o);});l.renderOrder=7;
+  if(!TR.pin)TR.pin=new THREE.Vector3(c.x,b.max.y+.02,c.z);
+ });
+}
+// narration: Web Speech API voice when the device has one for the chosen language, otherwise timed captions
+let VOICES=[];function loadVoices(){try{VOICES=speechSynthesis.getVoices()||[];}catch(e){VOICES=[];}}
+if('speechSynthesis' in window){loadVoices();try{speechSynthesis.addEventListener('voiceschanged',()=>{loadVoices();if(TR.on)updVoiceBtn();});}catch(e){}}
+function voiceFor(lang){const p=lang==='vi'?'vi':'en',m=VOICES.filter(v=>v.lang&&v.lang.toLowerCase().replace('_','-').startsWith(p));
+ return m.find(v=>/natural|online|neural/i.test(v.name))||m.find(v=>/google|microsoft/i.test(v.name))||m[0]||null;}
+const SAY={vi:[[/W\/m²K/g,' oát trên mét vuông kelvin'],[/m²/g,' mét vuông'],[/°C/g,' độ C'],[/kW/g,' ki lô oát'],[/kPa/g,' ki lô pascal'],[/L\/h/g,' lít mỗi giờ'],[/m\/s/g,' mét trên giây'],
+  [/bar\(g\)/g,' ba'],[/\bbar\b/g,' ba'],[/≥/g,' lớn hơn hoặc bằng '],[/≈/g,' khoảng '],[/β/g,'bê ta'],[/η/g,'hiệu suất'],[/→/g,', '],[/(\d) s\b/g,'$1 giây'],[/(\d) mm\b/g,'$1 mi li mét'],[/(\d) m\b/g,'$1 mét'],[/(\d) %/g,'$1 phần trăm']],
+ en:[[/W\/m²K/g,' watts per square metre kelvin'],[/m²/g,' square metres'],[/°C/g,' degrees Celsius'],[/kW/g,' kilowatts'],[/kPa/g,' kilopascals'],[/L\/h/g,' litres per hour'],[/m\/s/g,' metres per second'],
+  [/bar\(g\)/g,' bar gauge'],[/≥/g,' at least '],[/≈/g,' about '],[/β/g,'beta'],[/η/g,'eta'],[/→/g,' to '],[/(\d) s\b/g,'$1 seconds'],[/(\d) mm\b/g,'$1 millimetres'],[/(\d) m\b/g,'$1 metres'],[/(\d) %/g,'$1 percent']]};
+function stopSpeech(){TR.utt=null;TR.spk=false;try{speechSynthesis.cancel();}catch(e){}}
+function speak(txt){
+ const u=new SpeechSynthesisUtterance(SAY[TR.lang].reduce((s,[a,b])=>s.replace(a,b),txt)),v=voiceFor(TR.lang);
+ if(v)u.voice=v;u.lang=TR.lang==='vi'?'vi-VN':'en-US';u.rate=TR.lang==='vi'?1.05:1.02;
+ TR.utt=u;TR.spk=true;u.onend=u.onerror=()=>{if(TR.utt!==u)return;TR.spk=false;TR.dur=TR.t+.35;};
+ try{speechSynthesis.cancel();}catch(e){}setTimeout(()=>{if(TR.utt===u&&!TR.paused)speechSynthesis.speak(u);},60);
+}
+function sayCurrent(){
+ const s=TR.sents[TR.si],on=TOUR[TR.i].on;markSent(TR.si);
+ if(on&&on[TR.si]&&!TR.fired.has(TR.si)){TR.fired.add(TR.si);on[TR.si]();}
+ TR.t=0;TR.est=s.length*.062+.9;
+ if(TR.voice&&voiceFor(TR.lang)){TR.dur=1.2;TR.cap=s.length*.16+6;speak(s);}
+ else{TR.spk=false;TR.dur=Math.min(12,Math.max(2.8,TR.est));}
+}
+function tNext(){
+ const n=TR.sents.length;
+ if(TR.si>=n-1){
+  if(!TR.endWait){TR.endWait=true;TR.t=0;TR.dur=1.1;TR.spk=false;markSent(n);return;}
+  TR.endWait=false;if(TR.i<TOUR.length-1)goStep(TR.i+1);else tFinish();return;
+ }
+ TR.si++;sayCurrent();
+}
+function tFinish(){TR.done=true;TR.paused=true;tIcon('replay');markSent(TR.sents.length);controls.autoRotate=true;$('tProg').style.width='100%';}
+const ICON={play:'M7 4v16l13-8z',pause:'M6 5h4v14H6zm8 0h4v14h-4z',replay:'M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z'};
+function tIcon(n){$('tPlayI').innerHTML=`<path d="${ICON[n]}"/>`;}
+function markSent(i){
+ const ss=$('tText').querySelectorAll('.sn');ss.forEach((e,j)=>{e.classList.toggle('past',j<i);e.classList.toggle('cur',j===i);});
+ const c=ss[i],p=$('tText');if(c)p.scrollTop=Math.max(0,c.offsetTop-p.offsetTop-4);
+}
+function renderKv(){const st=TOUR[TR.i];if(!R)return;set('tKv',st.k().map(([l,v])=>`<span>${l}${l?' ':''}<b>${v}</b></span>`).join(''));}
+function renderStep(){
+ const st=TOUR[TR.i],tx=st[TR.lang],num=String(TR.i+1).padStart(2,'0');
+ $('view').style.setProperty('--tc',st.c);set('tStep',`${num} / ${TOUR.length}`);set('tTitle',tx.t);set('tPinT',tx.sh);
+ set('tText',TR.sents.map((s,j)=>`<span class="sn">${s} </span>`).join(''));
+ set('tCardN',(TR.lang==='vi'?'BƯỚC ':'STEP ')+num);set('tCardT',tx.t);const cd=$('tourCard');cd.classList.remove('run');void cd.offsetWidth;cd.classList.add('run');
+ [...$('tRail').children].forEach((b,j)=>{b.classList.toggle('on',j===TR.i);b.classList.toggle('done',j<TR.i);b.title=TOUR[j][TR.lang].t;});
+ renderKv();
+}
+function modeTo(th){if(S.thermal!==th)document.querySelector(`#modeSeg button[data-m="${th?'thermal':'cad'}"]`).click();}
+function tabTo(t){if(S.tab!==t)document.querySelector(`.tabs button[data-tab="${t}"]`).click();}
+function goStep(i){
+ i=Math.max(0,Math.min(TOUR.length-1,i));TR.i=i;TR.done=false;TR.paused=false;TR.endWait=false;TR.fired=new Set();TR.ptw=null;stopSpeech();tIcon('pause');
+ const st=TOUR[i];
+ if(S.inspector!==!!st.insp)toggleInspector(!!st.insp,true);
+ if(S.cutaway!==!!st.cut)toggleCut(!!st.cut);
+ const xr=st.xr??100,ex=st.ex??0;if(S.xray!==xr)setParam('xray',xr);if(S.explode!==ex)setParam('explode',ex);if(S.Tp!==DEF.Tp)setParam('Tp',DEF.Tp);
+ modeTo(!st.cad);if(st.tab)tabTo(st.tab);controls.autoRotate=!!st.rot;
+ document.querySelectorAll('.sec.tourhl').forEach(e=>e.classList.remove('tourhl'));
+ (st.ui||[]).forEach(id=>{const e=$(id),s=e&&e.closest('.sec');if(s)s.classList.add('tourhl');});
+ const c=new THREE.Color(st.c).convertSRGBToLinear();HL.fill.color.copy(c);HL.glow.color.copy(c);HL.line.color.copy(c).lerp(new THREE.Color(1,1,1),.3);
+ hiClear();TR.pend=true;TR.sents=[];TR.si=-1;TR.t=0;TR.dur=.8;TR.spk=false;
+}
+function updVoiceBtn(){
+ const vi=TR.lang==='vi',has='speechSynthesis' in window,ok=TR.voice&&!!voiceFor(TR.lang);
+ $('tVoice').classList.toggle('on',ok);set('tVoiceL',vi?'GIỌNG ĐỌC':'VOICE');set('tLang',vi?'VI · en':'EN · vi');
+ set('tNote',!TR.voice?'':!has?(vi?'Trình duyệt không hỗ trợ giọng đọc, đang chạy phụ đề':'This browser has no speech engine, captions only')
+  :!ok?(vi?'Thiết bị chưa có giọng đọc tiếng Việt, đang chạy phụ đề':'No English voice on this device, captions only'):'');
+}
+function startTour(){
+ if(!ready||TR.on)return;
+ TR.snap={V:S.V,Tp:S.Tp,eta:S.eta,beta:S.beta,Nt:S.Nt,Rf:S.Rf,explode:S.explode,xray:S.xray,inspector:S.inspector,cutaway:S.cutaway,thermal:S.thermal,tab:S.tab,
+  labels:S.labels,particles:S.particles,cam:camera.position.toArray(),tgt:controls.target.toArray()};
+ TR.on=true;['V','Tp','eta','beta','Nt','Rf'].forEach(k=>{if(S[k]!==DEF[k])setParam(k,DEF[k]);});
+ S.labels=false;if(!S.particles){S.particles=true;tgl('b_particles',true);setPipeTransparency();}
+ $('tour').hidden=false;$('tourBtn').hidden=true;$('view').classList.add('touring');updVoiceBtn();goStep(0);
+}
+function exitTour(){
+ if(!TR.on)return;TR.on=false;TR.pend=false;TR.ptw=null;stopSpeech();hiClear();
+ $('tour').hidden=true;$('tourBtn').hidden=false;$('view').classList.remove('touring');$('tourPin').style.display='none';
+ document.querySelectorAll('.sec.tourhl').forEach(e=>e.classList.remove('tourhl'));
+ const s=TR.snap;['V','Tp','eta','beta','Nt','Rf','explode','xray'].forEach(k=>{if(S[k]!==s[k])setParam(k,s[k]);});
+ if(S.inspector!==s.inspector)toggleInspector(s.inspector,true);if(S.cutaway!==s.cutaway)toggleCut(s.cutaway);
+ modeTo(s.thermal);tabTo(s.tab);S.labels=s.labels;
+ if(S.particles!==s.particles){S.particles=s.particles;tgl('b_particles',S.particles);setPipeTransparency();}
+ controls.autoRotate=S.rotate;flyTo(s.cam,s.tgt,1.6);
+}
+function tPlay(){
+ if(TR.done){goStep(0);return;}
+ TR.paused=!TR.paused;tIcon(TR.paused?'play':'pause');
+ if(TR.paused)stopSpeech();else if(TR.si>=0&&!TR.endWait&&!TR.pend)sayCurrent();
+}
+function tourVO(dt){
+ const tg=TR.on?Math.min(VH*.28,(TR.ph+12)*.5):0;
+ TR.vo+=(tg-TR.vo)*Math.min(1,dt*4);if(Math.abs(tg-TR.vo)<.3)TR.vo=tg;
+ const key=TR.vo.toFixed(1)+'|'+VW+'x'+VH;if(key===TR.voK)return;TR.voK=key;
+ if(TR.vo>0)camera.setViewOffset(VW,VH,0,TR.vo,VW,VH);else camera.clearViewOffset();camera.updateProjectionMatrix();
+}
+function tourTick(dt){
+ tourVO(dt);if(!TR.on)return;
+ const k=.5+.5*Math.sin(performance.now()*.005);HL.fill.opacity=.03+.06*k;HL.line.opacity=.4+.55*k;HL.glow.opacity=.16+.3*k;
+ if(TR.pend){if(D.solve||D.layout)return;TR.pend=false;const st=TOUR[TR.i];TR.sents=st[TR.lang].s();renderStep();markSent(-1);st.cam();hiBuild();return;}
+ if(TR.hp!==pipes)hiBuild();
+ if(TR.ptw){const p=TR.ptw;p.t+=dt;const e=Math.min(1,p.t/p.d),s=e<.5?2*e*e:1-Math.pow(-2*e+2,2)/2;setParam(p.k,p.a+(p.b-p.a)*s);if(e>=1)TR.ptw=null;}
+ if((TR.kt+=dt)>.3){TR.kt=0;renderKv();TR.ph=$('tour').offsetHeight;}
+ if(TR.paused)return;
+ TR.t+=dt;if(TR.t>=TR.dur&&!(TR.spk&&TR.t<TR.cap))tNext();
+ const n=Math.max(1,TR.sents.length),f=TR.endWait?1:Math.max(0,(TR.si+Math.min(1,TR.t/Math.max(TR.est,.1)))/n);
+ $('tProg').style.width=((TR.i+Math.min(1,f))/TOUR.length*100).toFixed(2)+'%';
+}
+function tourPinUpd(){
+ const e=$('tourPin');
+ if(!TR.on||!TR.pin||S.inspector||TR.pend){if(e.style.display!=='none')e.style.display='none';return;}
+ V3.copy(TR.pin);asm.localToWorld(V3);V3.project(camera);
+ if(V3.z>1||Math.abs(V3.x)>1||Math.abs(V3.y)>1){e.style.display='none';return;}
+ e.style.display='block';e.style.transform=`translate(${((V3.x*.5+.5)*VW).toFixed(1)}px,${((-V3.y*.5+.5)*VH).toFixed(1)}px)`;
+}
+TOUR.forEach((s,j)=>{const b=document.createElement('button');b.type='button';b.textContent=j+1;b.onclick=()=>goStep(j);$('tRail').appendChild(b);});
+$('tourBtn').onclick=startTour;$('tExit').onclick=exitTour;$('tPlay').onclick=tPlay;
+$('tPrev').onclick=()=>goStep(TR.i-1);$('tNext').onclick=()=>{if(TR.i<TOUR.length-1)goStep(TR.i+1);else tFinish();};
+$('tLang').onclick=()=>{TR.lang=TR.lang==='vi'?'en':'vi';updVoiceBtn();goStep(TR.i);};
+$('tVoice').onclick=()=>{TR.voice=!TR.voice;updVoiceBtn();if(!TR.voice){stopSpeech();if(TR.si>=0&&!TR.endWait)TR.dur=Math.max(TR.t+.5,Math.min(12,Math.max(2.8,TR.est)));}
+ else if(!TR.paused&&!TR.pend&&TR.si>=0&&!TR.endWait)sayCurrent();};
+document.addEventListener('keydown',e=>{
+ if(!TR.on)return;if(e.key==='Escape'){exitTour();return;}
+ if(e.target&&(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'))return;
+ if(e.key===' '){e.preventDefault();tPlay();}else if(e.key==='ArrowRight')$('tNext').click();else if(e.key==='ArrowLeft')goStep(TR.i-1);
+});
 window.addEventListener('resize',resize);resize();
 let last=performance.now(),texT=0,fc=0,ft=last;
 function frame(now){
  requestAnimationFrame(frame);
- const dt=Math.min(.05,(now-last)/1000);last=now;
+ const rdt=Math.min(.25,(now-last)/1000),dt=Math.min(.05,rdt);last=now;
  if(D.solve){R=solve(S);D.solve=false;if(!L.N||SECS.some(k=>L.N[k]!==R.N[k]))D.layout=true;updUI();D.tint=true;D.chart=true;}
  if(D.tex&&now-texT>70){genChevron(S.beta);D.tex=false;texT=now;}
  if(D.layout){layout();D.layout=false;ready=true;D.tint=true;}
  if(D.tint&&ready){applyTints();D.tint=false;labelText();}
  if(tween){const k=Math.min(1,(now-tween.s)/tween.d),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;camera.position.lerpVectors(tween.p0,tween.p1,e);controls.target.lerpVectors(tween.t0,tween.t1,e);if(k>=1)tween=null;}
- controls.update();stepFlows(dt);stepInsp(dt);
- renderer.render(scene,camera);updLabels();
+ tourTick(rdt);controls.update();stepFlows(dt);stepInsp(dt);
+ renderer.render(scene,camera);updLabels();tourPinUpd();
  if(D.chart){drawChart();D.chart=false;}
  fc++;if(now-ft>1000){set('c_fps',`${Math.round(fc*1000/(now-ft))} FPS`);fc=0;ft=now;}
 }
