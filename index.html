@@ -25,7 +25,8 @@ header{height:52px;flex:none;display:flex;align-items:center;gap:12px;padding:0 
 .chip{font:600 10px var(--mono);padding:4px 9px;border-radius:999px;border:1px solid var(--ln2);background:rgba(255,255,255,.03);color:var(--mu);white-space:nowrap;display:flex;align-items:center;gap:6px;letter-spacing:.3px}
 .chip i{width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
 .chip.ok{color:var(--ok);border-color:rgba(34,197,94,.45)}.chip.bad{color:var(--bd);border-color:rgba(239,68,68,.55)}.chip.wr{color:var(--wr);border-color:rgba(245,158,11,.5)}.chip.ac{color:var(--ac);border-color:rgba(56,189,248,.4)}
-#app{flex:1;min-height:0;display:grid;grid-template-columns:300px minmax(0,1fr) 420px}
+#app{--lW:300px;--rW:420px;flex:1;min-height:0;display:grid;grid-template-columns:var(--lW) minmax(0,1fr) var(--rW);transition:grid-template-columns .32s ease}
+#app.hideL{grid-template-columns:0px minmax(0,1fr) var(--rW)}#app.hideR{grid-template-columns:var(--lW) minmax(0,1fr) 0px}#app.hideL.hideR{grid-template-columns:0px minmax(0,1fr) 0px}
 .panel{overflow-y:auto;background:var(--pan);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:10px 12px 18px;scrollbar-width:thin;scrollbar-color:#24384c transparent}
 #left{border-right:1px solid var(--ln)}#right{border-left:1px solid var(--ln)}
 .sec{margin-bottom:12px}
@@ -119,13 +120,15 @@ td.neg{color:#f87171}td.pos{color:#86efac}
 .cleg{display:flex;flex-wrap:wrap;gap:4px 12px;font:9.5px var(--mono);color:#9fb4c8;padding:4px 2px 0}
 .cleg span{display:flex;align-items:center;gap:5px}.cleg i{width:18px;height:0;border-top:2px solid}
 .note{font:9.5px/1.5 var(--mono);color:var(--dim);margin-top:8px}
-@media (max-width:1280px){#app{grid-template-columns:272px minmax(0,1fr) 370px}.chips .chip.x{display:none}}
+@media (max-width:1280px){#app{--lW:272px;--rW:370px}.chips .chip.x{display:none}}
 @media (max-width:1000px){
  html,body{overflow:auto;height:auto}body{display:block}
  #app{display:flex;flex-direction:column}#view{order:1;height:62vh;min-height:380px}#left{order:2}#right{order:3}
  .panel{overflow:visible;border:0!important;border-top:1px solid var(--ln)!important}.chips .chip.y{display:none}#hint{display:none}
 }
-@media (max-width:560px){.chips{display:none}#legend{width:200px}.streams{grid-template-columns:repeat(2,1fr)}table{font-size:9.5px}}
+@media (max-width:1000px){#app.hideL #left,#app.hideR #right{display:none}#app.hideL.hideR #view{height:calc(100vh - 52px);height:calc(100svh - 52px);min-height:0}}
+@media (max-width:700px){.pv button span{display:none}}
+@media (max-width:560px){.chips{display:none}.pv{margin-left:auto}#legend{width:200px}.streams{grid-template-columns:repeat(2,1fr)}table{font-size:9.5px}}
 [hidden]{display:none!important}
 #tourBtn{position:absolute;top:10px;right:12px;z-index:3;display:flex;align-items:center;gap:9px;padding:6px 14px 6px 6px;border-radius:999px;border:1px solid rgba(56,189,248,.55);background:linear-gradient(135deg,rgba(14,40,62,.92),rgba(10,22,34,.92));box-shadow:0 0 0 0 rgba(56,189,248,.5),0 6px 22px rgba(0,0,0,.45);animation:tb 2.4s infinite;text-align:left}
 #tourBtn:hover{border-color:var(--ac);background:linear-gradient(135deg,rgba(18,58,88,.95),rgba(12,28,44,.95))}
@@ -172,6 +175,14 @@ td.neg{color:#f87171}td.pos{color:#86efac}
 @media (max-width:1000px){#view.touring{height:82vh}}
 @media (max-width:700px){#tour{padding:10px 10px 8px;gap:6px}#tTitle{font-size:13.5px}#tText{font-size:12.5px;max-height:5.2em}#tText .sn:not(.cur){display:none}
  #tour #tRail button{width:18px;height:18px;font-size:8px}#tour .tlbl,#tourBtn small{display:none}#tourCard b{font-size:19px}}
+.pv{display:flex;flex:none;border:1px solid var(--ln2);border-radius:8px;overflow:hidden}
+.pv button{height:28px;min-width:32px;padding:0 9px;border:0;border-left:1px solid var(--ln);background:rgba(255,255,255,.03);color:var(--mu);display:flex;align-items:center;justify-content:center;gap:6px;font:600 10px var(--mono);letter-spacing:.5px;white-space:nowrap}
+.pv button:first-child{border-left:0}.pv button svg{width:15px;height:15px;fill:currentColor;flex:none}
+.pv button:hover{color:var(--tx);background:rgba(255,255,255,.08)}.pv button.on{color:var(--ac);background:rgba(56,189,248,.13)}
+.panel{transition:padding .32s ease,visibility 0s}
+#app.hideL #left,#app.hideR #right{visibility:hidden;padding-left:0;padding-right:0;transition:padding .32s ease,visibility 0s .32s}
+#app.anim .panel{overflow:hidden}#app.anim #left>*,#app.hideL #left>*{min-width:var(--lcw,276px)}#app.anim #right>*,#app.hideR #right>*{min-width:var(--rcw,396px)}
+@media (prefers-reduced-motion:reduce){#app,.panel{transition:none}}
 </style>
 </head>
 <body>
@@ -184,6 +195,11 @@ td.neg{color:#f87171}td.pos{color:#86efac}
   <div class="chip ac x" id="c_solv"><i></i>SOLVER</div>
   <div class="chip x y" id="c_fps">-- FPS</div>
   <div class="chip y" id="c_clk">--:--:--</div>
+ </div>
+ <div class="pv" role="group" aria-label="Side panels">
+  <button type="button" id="b_pl" class="on" title="Bảng thông số trái · Left parameter panel ( [ )" aria-label="Toggle left panel"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3 5h18v14H3zM10 7h9v10h-9z"/></svg></button>
+  <button type="button" id="b_pf" title="Toàn cảnh 3D · hide both panels ( F )" aria-label="Full 3D view"><svg viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4zm10 0h6v6h-2V6h-4zM4 14h2v4h4v2H4zm14 0h2v6h-6v-2h4z"/></svg><span id="b_pfL">TOÀN CẢNH 3D</span></button>
+  <button type="button" id="b_pr" class="on" title="Bảng KPI phải · Right KPI panel ( ] )" aria-label="Toggle right panel"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3 5h18v14H3zM5 7h9v10H5z"/></svg></button>
  </div>
 </header>
 <main id="app">
@@ -241,7 +257,7 @@ td.neg{color:#f87171}td.pos{color:#86efac}
   </div>
   <div class="ov" id="inspTag">SINGLE-PLATE PAIR INSPECTOR · COUNTER-CURRENT CHEVRON CHANNELS</div>
   <div class="ov" id="legend"><div>LOCAL FLUID / PLATE TEMPERATURE · °C</div><div class="bar" id="lgBar"></div><div class="tk"><span>0</span><span>4</span><span>20</span><span>35</span><span>50</span><span>60</span><span>75</span><span>85</span></div></div>
-  <div class="ov" id="hint">LMB orbit · RMB pan · wheel zoom<br>PHE pack: Head → Cooling → Regen → Heating → Follower</div>
+  <div class="ov" id="hint">LMB orbit · RMB pan · wheel zoom · F full view<br>PHE pack: Head → Cooling → Regen → Heating → Follower</div>
   <div id="loading"><div class="spin"></div>Generating procedural CAD geometry…</div>
   <div id="fatal"><b style="font-size:14px">3D engine unavailable</b><p></p></div>
  </section>
@@ -1292,6 +1308,21 @@ document.addEventListener('keydown',e=>{
  if(!TR.on)return;if(e.key==='Escape'){exitTour();return;}
  if(e.target&&(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'))return;
  if(e.key===' '){e.preventDefault();tPlay();}else if(e.key==='ArrowRight')$('tNext').click();else if(e.key==='ArrowLeft')goStep(TR.i-1);
+});
+// ================= SIDE PANEL VISIBILITY (full 3D view) =================
+const APP=$('app');let pnlT=0;
+function setPanels(l,r){
+ if(innerWidth>1000){['left','right'].forEach(id=>{const e=$(id);if(e.offsetWidth>40)APP.style.setProperty('--'+id[0]+'cw',(e.clientWidth-24)+'px');});
+  APP.classList.add('anim');clearTimeout(pnlT);pnlT=setTimeout(()=>APP.classList.remove('anim'),420);}
+ APP.classList.toggle('hideL',l);APP.classList.toggle('hideR',r);
+ tgl('b_pl',!l);tgl('b_pr',!r);tgl('b_pf',l&&r);set('b_pfL',l&&r?'HIỆN BẢNG':'TOÀN CẢNH 3D');
+}
+const pState=()=>[APP.classList.contains('hideL'),APP.classList.contains('hideR')];
+$('b_pl').onclick=()=>{const [l,r]=pState();setPanels(!l,r);};$('b_pr').onclick=()=>{const [l,r]=pState();setPanels(l,!r);};
+$('b_pf').onclick=()=>{const [l,r]=pState();const f=!(l&&r);setPanels(f,f);};
+document.addEventListener('keydown',e=>{
+ if(e.ctrlKey||e.metaKey||e.altKey||e.repeat)return;const t=e.target;if(t&&(t.tagName==='TEXTAREA'||t.tagName==='INPUT'&&t.type!=='range'))return;
+ if(e.key==='f'||e.key==='F')$('b_pf').click();else if(e.key==='[')$('b_pl').click();else if(e.key===']')$('b_pr').click();
 });
 window.addEventListener('resize',resize);resize();
 let last=performance.now(),texT=0,fc=0,ft=last;
